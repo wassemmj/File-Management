@@ -73,6 +73,15 @@ module.exports.getUsersInGroupservice = async (groupId)=>{
     }
 }
 
+module.exports.deleteUsersInGroupservice = async (groupId)=>{
+    try{
+        const users = await repo.deleteUsersInGroupRepo(groupId) ;
+        return users;
+    }catch (e){
+        throw new Error(e.message);
+    }
+}
+
 module.exports.addUserGroupservice = async (usersId,group_id,id)=>{
     try{
         return await repo.addUserGrouprepo(usersId,group_id,id);

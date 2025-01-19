@@ -13,6 +13,7 @@ router.post('/acceptRequest/:id/:groupId' ,auth, userController.acceptJoinReques
 
 router.get('/getUsers' ,auth, userController.getUsers) ;
 router.get('/getUsersInGroup/:groupId' , userController.getUsersInGroup) ;
+router.get('/deleteUserInGroup/:userId' , userController.deleteUsersInGroup) ;
 
 
 router.get('/getRequestNot' ,auth, userController.getNotificationAdd) ;

@@ -66,3 +66,12 @@ module.exports.EditGroupNameRepo = async (groupId, name) => {
         throw new Error('An Error Occurred') ;
     }
 }
+
+module.exports.deleteGroupRepo = async (groupId, name) => {
+    try {
+        const groupName =  await knex('groups').where('id',groupId).delete();
+        return groupName;
+    } catch (e) {
+        throw new Error('An Error Occurred') ;
+    }
+}

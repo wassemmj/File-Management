@@ -48,6 +48,15 @@ module.exports.getUsersInGroupRepo = async (groupId)=>{
     }
 }
 
+module.exports.deleteUsersInGroupRepo = async (userID)=>{
+    try{
+        const done = await knex('userGroups').where('user_id' , userID).delete();
+        return done;
+    }catch (e){
+        throw new Error('Failed to save user to the database');
+    }
+}
+
 module.exports.addUserGrouprepo = async (usersId,group_id,id) => {
     try{
         const access = await knex('groups').where('id',group_id).andWhere('adminId',id);

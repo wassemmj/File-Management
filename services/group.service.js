@@ -44,3 +44,11 @@ module.exports.EditGroupNameService = async (groupId, name) => {
         throw new Error(e.message);
     }
 }
+
+module.exports.deleteGroupService = async (groupId) => {
+    try {
+        return await repo.deleteGroupRepo(groupId);
+    } catch (e) {
+        throw new Error(e.message);
+    }
+}

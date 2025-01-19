@@ -60,3 +60,14 @@ module.exports.EditGroupName = async (req , res)=>{
         res.status(404).send({'message' : 'An error occurred while Getting the groups'}) ;
     }
 }
+
+module.exports.deleteGroup = async (req , res)=>{
+    try{
+        const groupId = req.params.id;
+        await service.deleteGroupService(groupId);
+        res.status(200).send({ message: 'group deleted successfully' }) ;
+    }catch(e){
+        console.log(e.message) ;
+        res.status(404).send({'message' : 'An error occurred while Getting the groups'}) ;
+    }
+}
